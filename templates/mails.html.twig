@@ -1,0 +1,21 @@
+{# templates/happy.html.twig #}
+
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Mails</h1>
+
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Subject</th>
+        <th>Content</th>
+    </tr>
+    {% for message in messages %}
+    <tr>
+        <td>{{ message.date | date("d.m.Y") }}</td>
+        <td>{{ message.subject }}</td>
+        <td>{{ message.body }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
