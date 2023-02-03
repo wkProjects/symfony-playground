@@ -10,10 +10,10 @@ COPY apache-vhost.conf /etc/apache2/sites-enabled/000-default.conf
 
 RUN mkdir -p /app && chown www-data: /app
 WORKDIR /app
-USER www-data
 COPY --chown=www-data . /app
 
-
+USER www-data
 RUN --mount=type=bind,from=composer:2,source=/usr/bin/composer,target=/usr/bin/composer \
     composer install
 
+USER root
