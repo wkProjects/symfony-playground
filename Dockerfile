@@ -13,7 +13,9 @@ WORKDIR /app
 COPY --chown=www-data . /app
 
 USER www-data
+ENV APP_ENV=prod
+
 RUN --mount=type=bind,from=composer:2,source=/usr/bin/composer,target=/usr/bin/composer \
-    composer install
+    composer install --no-dev --optimize-autoloader
 
 USER root
