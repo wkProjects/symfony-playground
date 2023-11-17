@@ -1,6 +1,6 @@
 FROM php:8.2-apache
 
-RUN  --mount=type=bind,from=mlocati/php-extension-installer:1.5,source=/usr/bin/install-php-extensions,target=/usr/local/bin/install-php-extensions install-php-extensions \
+RUN  --mount=type=bind,from=mlocati/php-extension-installer:2.1.65,source=/usr/bin/install-php-extensions,target=/usr/local/bin/install-php-extensions install-php-extensions \
     iconv \
     imap \
     intl \
